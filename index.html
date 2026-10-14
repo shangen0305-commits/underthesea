@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浪下真相</title>
+
+<style>
+
+    /* ===== 基本設定 ===== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        background-color: #f5f8f8;
+        color: #52686b;
+    }
+
+    @font-face {
+        font-family: "我的網站字體";
+        src: url("rounded-l-mgenplus-2c-heavy.ttf") format("truetype");
+    }
+
+
+
+    /* ==================================================
+       頂部導覽列
+       ================================================== */
+
+    .navbar {
+        height: 70px;
+        background-color: rgba(255, 255, 255, 0.97);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        position: relative;
+        z-index: 1000;
+    }
+
+
+
+    /* ===== Logo ===== */
+
+    .logo {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .logo img {
+        height: 180px;
+        width: auto;
+        display: block;
+    }
+
+
+
+    /* ===== 漢堡按鈕 ===== */
+
+    .menu-btn {
+        position: absolute;
+        right: 30px;
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .menu-btn span {
+        width: 25px;
+        height: 3px;
+        background-color: #1d5963;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+
+
+    /* ==================================================
+       第一個首頁版塊：地圖
+       ================================================== */
+
+    .home-hero {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 70px);
+        min-height: 650px;
+        overflow: hidden;
+        background-color: #f5f8f8;
+    }
+
+    .home-hero iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+
+
+    /* ==================================================
+       首頁功能入口
+       ================================================== */
+
+    .home-feature-links {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 900;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        width: 330px;
+        padding: 0;
+        background: transparent;
+    }
+
+    .home-feature-links a {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+        height: 145px;
+
+        padding: 20px 10px;
+
+        color: #1d5963;
+        background-color: transparent;
+
+        border: none;
+        border-radius: 0;
+
+        text-decoration: none;
+
+        font-size: 26px;
+        font-weight: 600;
+
+        box-shadow: none;
+
+        transition: all 0.3s ease;
+    }
+
+
+
+    /* ===== 功能入口說明 ===== */
+
+    .home-feature-links a:nth-child(1)::after {
+        content: "了解《浪下真相》的製作理念，以及台灣漁業所面臨的問題。";
+        display: block;
+        margin-top: 10px;
+
+        color: #52686b;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.8;
+        letter-spacing: 0.5px;
+
+        max-width: 290px;
+    }
+
+    .home-feature-links a:nth-child(2)::after {
+        content: "測試你對台灣漁業的了解程度，看看自己能答對幾題。";
+        display: block;
+        margin-top: 10px;
+
+        color: #52686b;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.8;
+        letter-spacing: 0.5px;
+
+        max-width: 290px;
+    }
+
+    .home-feature-links a:nth-child(3)::after {
+        content: "透過測驗了解你的個性，看看你與哪一種魚最相似。";
+        display: block;
+        margin-top: 10px;
+
+        color: #52686b;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.8;
+        letter-spacing: 0.5px;
+
+        max-width: 290px;
+    }
+
+
+
+    /* ===== 滑鼠移上去 ===== */
+
+    .home-feature-links a:hover {
+        color: #164852;
+        transform: translateX(-8px);
+    }
+
+    .home-feature-links a:hover::after {
+        color: #1d5963;
+    }
+
+
+
+    /* ==================================================
+       第一個下方版塊：紀實影片
+       ================================================== */
+
+    .documentary-section {
+        width: 100%;
+
+        background-color: #f5f8f8;
+
+        padding: 90px 8% 100px;
+
+        text-align: center;
+
+        position: relative;
+    }
+
+
+
+    /* 分隔線 */
+
+    .documentary-section::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 8%;
+        right: 8%;
+
+        height: 1px;
+
+        background-color: rgba(29, 89, 99, 0.08);
+    }
+
+
+
+    /* ===== 紀實影片標題 ===== */
+
+    .documentary-title {
+        margin-bottom: 38px;
+    }
+
+    .documentary-title .en-title {
+        font-size: 13px;
+
+        letter-spacing: 4px;
+
+        color: #6b8588;
+
+        margin-bottom: 12px;
+    }
+
+    .documentary-title h2 {
+        font-size: 40px;
+
+        font-weight: 600;
+
+        margin: 0 0 18px;
+
+        color: #1d5963;
+    }
+
+
+
+    /* 標題底下的小線 */
+
+    .documentary-title h2::after {
+        content: "";
+
+        display: block;
+
+        width: 45px;
+        height: 3px;
+
+        margin: 15px auto 0;
+
+        background-color: #7da9ad;
+
+        border-radius: 10px;
+    }
+
+    .documentary-title p {
+        font-size: 16px;
+
+        color: #607376;
+
+        line-height: 1.9;
+    }
+
+
+
+    /* ==================================================
+       影片輪播
+       ================================================== */
+
+    .video-carousel {
+        max-width: 1050px;
+
+        margin: 0 auto;
+
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+    .video-container {
+        width: 86%;
+
+        overflow: hidden;
+
+        border-radius: 14px;
+
+        background-color: #dfe8e8;
+
+        box-shadow:
+            0 10px 30px rgba(29, 89, 99, 0.12);
+    }
+
+    .video-slide {
+        display: none;
+    }
+
+    .video-slide.active {
+        display: block;
+    }
+
+    .video-slide iframe {
+        width: 100%;
+
+        aspect-ratio: 16 / 9;
+
+        display: block;
+
+        border: none;
+    }
+
+
+
+    /* ==================================================
+       左右箭頭
+       ================================================== */
+
+    .video-arrow {
+        width: 46px;
+        height: 46px;
+
+        border: 1px solid rgba(29, 89, 99, 0.08);
+
+        border-radius: 50%;
+
+        background-color: rgba(255, 255, 255, 0.95);
+
+        color: #1d5963;
+
+        font-size: 25px;
+
+        cursor: pointer;
+
+        position: absolute;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        z-index: 5;
+
+        box-shadow:
+            0 4px 15px rgba(29, 89, 99, 0.1);
+
+        transition: all 0.3s ease;
+    }
+
+    .video-arrow:hover {
+        background-color: #1d5963;
+        color: #ffffff;
+
+        transform:
+            translateY(-50%)
+            scale(1.05);
+    }
+
+    .video-prev {
+        left: 0;
+    }
+
+    .video-next {
+        right: 0;
+    }
+
+
+
+    /* ==================================================
+       影片資訊
+       ================================================== */
+
+    .video-info {
+        margin-top: 22px;
+    }
+
+    .video-info h3 {
+        font-size: 24px;
+
+        margin-bottom: 10px;
+
+        color: #1d5963;
+    }
+
+    .video-info p {
+        color: #667779;
+
+        line-height: 1.7;
+
+        font-size: 16px;
+    }
+
+
+
+    /* ==================================================
+       影片圓點
+       ================================================== */
+
+    .video-dots {
+        margin-top: 22px;
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+    .video-dot {
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+
+        background-color: #c5d4d5;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+
+    .video-dot.active {
+        background-color: #1d5963;
+
+        transform: scale(1.25);
+    }
+
+
+
+    /* ==================================================
+       查看完整影片
+       ================================================== */
+
+    .documentary-btn {
+        display: inline-block;
+
+        margin-top: 30px;
+
+        padding: 12px 28px;
+
+        background-color: #1d5963;
+
+        color: #ffffff;
+
+        text-decoration: none;
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 5px 15px rgba(29, 89, 99, 0.12);
+
+        transition: all 0.3s ease;
+    }
+
+    .documentary-btn:hover {
+        background-color: #164852;
+
+        transform: translateY(-2px);
+    }
+
+
+
+    /* ==================================================
+       第二個下方版塊：關於我們
+       ================================================== */
+
+    .fisheries-section {
+        width: 100%;
+        min-height: 520px;
+
+        padding: 90px 8%;
+
+        background: linear-gradient(
+            to bottom,
+            #f5f8f8 0%,
+            #edf5f5 100%
+        );
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+    }
+
+
+
+    /* 淡淡的分隔線 */
+
+    .fisheries-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 8%;
+        right: 8%;
+
+        height: 1px;
+
+        background-color: rgba(29, 89, 99, 0.08);
+    }
+
+
+
+    .fisheries-content {
+        width: 100%;
+        max-width: 1180px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 80px;
+        margin: 0 auto;
+    }
+
+
+
+    /* ===== 左側文字 ===== */
+
+    .fisheries-text {
+        flex: 1;
+    }
+
+    .fisheries-label {
+        font-size: 14px;
+        color: #6b8588;
+
+        letter-spacing: 4px;
+        margin-bottom: 14px;
+    }
+
+    .fisheries-title {
+        font-size: 40px;
+        font-weight: 600;
+
+        color: #1d5963;
+
+        margin-bottom: 22px;
+
+        line-height: 1.35;
+    }
+
+
+
+    /* 標題底下的小線 */
+
+    .fisheries-title::after {
+        content: "";
+        display: block;
+
+        width: 45px;
+        height: 3px;
+
+        margin-top: 18px;
+
+        background-color: #7da9ad;
+        border-radius: 10px;
+    }
+
+    .fisheries-description {
+        font-size: 16px;
+
+        color: #607376;
+
+        line-height: 2;
+
+        max-width: 480px;
+    }
+
+
+
+    /* ==================================================
+       關於我們卡片
+       ================================================== */
+
+    .fisheries-cards {
+        flex: 1;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+    .fisheries-card {
+        background-color: rgba(255, 255, 255, 0.92);
+
+        padding: 28px 24px;
+
+        border-radius: 12px;
+
+        border: 1px solid rgba(29, 89, 99, 0.07);
+
+        box-shadow: 0 5px 18px rgba(29, 89, 99, 0.06);
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .fisheries-card:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 10px 25px rgba(29, 89, 99, 0.1);
+    }
+
+    .fisheries-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+
+        color: #1d5963;
+
+        margin-bottom: 10px;
+    }
+
+    .fisheries-card p {
+        font-size: 14px;
+
+        color: #687a7c;
+
+        line-height: 1.8;
+    }
+
+
+
+    /* ==================================================
+       回到頂端按鈕
+       ================================================== */
+
+    .back-to-top {
+        position: fixed;
+
+        right: 30px;
+        bottom: 30px;
+
+        width: 48px;
+        height: 48px;
+
+        border: none;
+        border-radius: 50%;
+
+        background-color: #1d5963;
+        color: #ffffff;
+
+        font-size: 22px;
+
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow:
+            0 5px 18px rgba(29, 89, 99, 0.2);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(15px);
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease,
+            transform 0.3s ease,
+            background-color 0.3s ease;
+
+        z-index: 1200;
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+        background-color: #164852;
+
+        transform: translateY(-3px);
+    }
+
+
+
+    /* ==================================================
+       側邊選單
+       ================================================== */
+
+    .side-menu {
+        position: fixed;
+
+        top: 0;
+        right: -320px;
+
+        width: 320px;
+        height: 100vh;
+
+        background-color: #ffffff;
+
+        box-shadow:
+            -4px 0 12px rgba(0, 0, 0, 0.15);
+
+        transition: right 0.3s ease;
+
+        z-index: 2000;
+
+        overflow-y: auto;
+    }
+
+    .side-menu.active {
+        right: 0;
+    }
+
+    .menu-header {
+        height: 70px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 0 25px;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .menu-header h2 {
+        font-size: 20px;
+
+        color: #1d5963;
+    }
+
+    .close-btn {
+        font-size: 30px;
+
+        color: #555;
+
+        background: none;
+
+        border: none;
+
+        cursor: pointer;
+    }
+
+
+
+    /* ===== 選單項目 ===== */
+
+    .menu-list {
+        list-style: none;
+
+        padding: 15px 0;
+    }
+
+    .menu-list li {
+        width: 100%;
+    }
+
+    .menu-list a,
+    .submenu-btn {
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 16px 25px;
+
+        color: #333;
+
+        text-decoration: none;
+
+        font-size: 17px;
+
+        background: none;
+
+        border: none;
+
+        cursor: pointer;
+
+        text-align: left;
+
+        font-family: inherit;
+    }
+
+    .menu-list a:hover,
+    .submenu-btn:hover {
+        background-color: #edf5f5;
+
+        color: #1d5963;
+    }
+
+
+
+    /* ===== 下拉選單 ===== */
+
+    .submenu {
+        list-style: none;
+
+        background-color: #f7fafa;
+
+        display: none;
+    }
+
+    .submenu.active {
+        display: block;
+    }
+
+    .submenu li a {
+        padding: 13px 25px 13px 45px;
+
+        font-size: 15px;
+
+        color: #555;
+    }
+
+    .submenu li a:hover {
+        background-color: #e8f1f1;
+
+        color: #1d5963;
+    }
+
+
+
+    /* ===== 下拉箭頭 ===== */
+
+    .arrow {
+        font-size: 14px;
+
+        transition: transform 0.3s;
+    }
+
+    .submenu-btn.active .arrow {
+        transform: rotate(180deg);
+    }
+
+
+
+    /* ===== 遮罩 ===== */
+
+    .overlay {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: rgba(0, 0, 0, 0.35);
+
+        display: none;
+
+        z-index: 1500;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+
+
+    /* ==================================================
+       手機版
+       ================================================== */
+
+    @media (max-width: 800px) {
+
+        .navbar {
+            padding: 0 18px;
+        }
+
+        .logo img {
+            height: 145px;
+        }
+
+        .menu-btn {
+            right: 15px;
+        }
+
+
+
+        /* ===== 第一版 ===== */
+
+        .home-hero {
+            height: calc(100vh - 70px);
+
+            min-height: 650px;
+        }
+
+        .home-feature-links {
+            right: 50%;
+
+            top: auto;
+
+            bottom: 5%;
+
+            transform: translateX(50%);
+
+            width: 88%;
+
+            gap: 5px;
+        }
+
+        .home-feature-links a {
+            width: 100%;
+
+            height: auto;
+
+            min-height: 100px;
+
+            padding: 15px 10px;
+
+            font-size: 20px;
+        }
+
+        .home-feature-links a::after {
+            margin-top: 7px;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            max-width: 100%;
+        }
+
+        .home-feature-links a:hover {
+            transform: none;
+        }
+
+
+
+        /* ===== 紀實影片 ===== */
+
+        .documentary-section {
+            padding: 70px 7% 80px;
+        }
+
+        .documentary-section::before {
+            left: 7%;
+
+            right: 7%;
+        }
+
+        .documentary-title h2 {
+            font-size: 32px;
+        }
+
+        .documentary-title p {
+            font-size: 15px;
+        }
+
+        .documentary-title {
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            width: 82%;
+        }
+
+        .video-arrow {
+            width: 40px;
+
+            height: 40px;
+
+            font-size: 20px;
+        }
+
+        .video-info h3 {
+            font-size: 22px;
+        }
+
+        .video-info p {
+            font-size: 14px;
+        }
+
+
+
+        /* ===== 關於我們 ===== */
+
+        .fisheries-section {
+            padding: 70px 7%;
+
+            min-height: auto;
+        }
+
+        .fisheries-section::before {
+            left: 7%;
+
+            right: 7%;
+        }
+
+        .fisheries-content {
+            flex-direction: column;
+
+            gap: 45px;
+        }
+
+        .fisheries-title {
+            font-size: 32px;
+        }
+
+        .fisheries-description {
+            font-size: 15px;
+        }
+
+        .fisheries-cards {
+            width: 100%;
+
+            grid-template-columns: 1fr;
+        }
+
+
+
+        /* ===== 回到頂端按鈕 ===== */
+
+        .back-to-top {
+            width: 42px;
+            height: 42px;
+
+            right: 18px;
+            bottom: 18px;
+
+            font-size: 19px;
+        }
+
+
+
+        /* ===== 側邊選單 ===== */
+
+        .side-menu {
+            width: 280px;
+        }
+    }
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ===== 頂部導覽列 ===== -->
+
+<nav class="navbar">
+
+    <!-- Logo -->
+
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="浪下真相">
+    </a>
+
+
+
+    <!-- 漢堡選單 -->
+
+    <button class="menu-btn" id="menuBtn">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</nav>
+
+
+
+<!-- ==================================================
+     第一個首頁版塊
+     地圖＋三個功能入口
+     ================================================== -->
+
+<section class="home-hero">
+
+    <!-- 台灣地圖 -->
+
+    <iframe src="twmap.html"></iframe>
+
+
+
+    <!-- 功能入口 -->
+
+    <div class="home-feature-links">
+
+        <a href="article1.html">
+            網頁介紹
+        </a>
+
+        <a href="testindex.html">
+            漁業小測驗
+        </a>
+
+        <a href="game.html">
+            漁業性格測試
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     第二個首頁版塊：紀實影片
+     ================================================== -->
+
+<section class="documentary-section" id="紀實影片">
+
+    <div class="documentary-title">
+
+        <div class="en-title">
+            DOCUMENTARY
+        </div>
+
+        <h2>
+            紀實影片
+        </h2>
+
+        <p>
+            走進台灣漁業現場，透過影像看見漁民、產業與土地的故事。
+        </p>
+
+    </div>
+
+
+
+    <!-- 影片輪播 -->
+
+    <div class="video-carousel">
+
+        <!-- 左箭頭 -->
+
+        <button
+            class="video-arrow video-prev"
+            id="videoPrev">
+
+            &#10094;
+
+        </button>
+
+
+        <!-- 影片區 -->
+
+        <div class="video-container">
+
+            <!-- 第一部 -->
+
+            <div class="video-slide active">
+
+                <iframe
+                    src="https://www.youtube.com/embed/qxaKAhHxZZE?si=eWPN3whmnd059g5T"
+                    title="從傳承到創新 漁三代與黑蜆的未來"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <!-- 第二部 -->
+
+            <div class="video-slide">
+
+                <iframe
+                    src="https://www.youtube.com/embed/你的影片ID2"
+                    title="紀實影片 2"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <!-- 第三部 -->
+
+            <div class="video-slide">
+
+                <iframe
+                    src="https://www.youtube.com/embed/你的影片ID3"
+                    title="紀實影片 3"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </div>
+
+
+        <!-- 右箭頭 -->
+
+        <button
+            class="video-arrow video-next"
+            id="videoNext">
+
+            &#10095;
+
+        </button>
+
+    </div>
+
+
+    <!-- 影片圓點 -->
+
+    <div class="video-dots">
+
+        <span class="video-dot active"></span>
+
+        <span class="video-dot"></span>
+
+        <span class="video-dot"></span>
+
+    </div>
+
+
+    <!-- 查看完整影片 -->
+
+    <a
+        href="article7.html"
+        class="documentary-btn">
+
+        查看完整紀實影片
+
+    </a>
+
+</section>
+
+
+
+<!-- ==================================================
+     第三個首頁版塊：關於我們
+     ================================================== -->
+
+<section class="fisheries-section" id="關於我們">
+
+    <div class="fisheries-content">
+
+
+        <!-- 左側文字 -->
+
+        <div class="fisheries-text">
+
+            <div class="fisheries-label">
+                FISHERIES IN TAIWAN
+            </div>
+
+            <h2 class="fisheries-title">
+                關於我們
+            </h2>
+
+            <p class="fisheries-description">
+                認識「浪下真相」團隊，以及我們製作這個網站的初衷。
+            </p>
+
+        </div>
+
+
+        <!-- 右側卡片 -->
+
+        <div class="fisheries-cards">
+
+            <div class="fisheries-card">
+
+                <h3>
+                    成員職稱
+                </h3>
+
+                <p>
+                    我們希望透過「浪下真相」讓更多人
+                    了解漁業產業背後的故事。
+                </p>
+
+            </div>
+
+
+            <div class="fisheries-card">
+
+                <h3>
+                    關於我們的照片
+                </h3>
+
+                <p>
+                    這裡可以放置團隊一起進行專題製作、
+                    討論或參訪時所拍攝的照片。
+                </p>
+
+            </div>
+
+
+            <div class="fisheries-card">
+
+                <h3>
+                    側拍記錄
+                </h3>
+
+                <p>
+                    從資料蒐集、討論、拍攝到網站製作，
+                    我們將專題進行過程中的點滴記錄下來。
+                </p>
+
+            </div>
+
+
+            <div class="fisheries-card">
+
+                <h3>
+                    幕後花絮
+                </h3>
+
+                <p>
+                    我們背後拍攝過程中的有趣小故事。
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     回到頂端按鈕
+     ================================================== -->
+
+<button
+    class="back-to-top"
+    id="backToTop"
+    aria-label="回到頂端">
+
+    ↑
+
+</button>
+
+
+
+<!-- ==================================================
+     遮罩
+     ================================================== -->
+
+<div
+    class="overlay"
+    id="overlay">
+</div>
+
+
+
+<!-- ==================================================
+     側邊選單
+     ================================================== -->
+
+<aside
+    class="side-menu"
+    id="sideMenu">
+
+
+    <!-- 選單標題 -->
+
+    <div class="menu-header">
+
+        <h2>
+            網站選單
+        </h2>
+
+        <button
+            class="close-btn"
+            id="closeBtn">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <!-- 選單內容 -->
+
+    <ul class="menu-list">
+
+        <!-- 首頁 -->
+
+        <li>
+
+            <a href="index.html">
+
+                <span>
+                    首頁
+                </span>
+
+            </a>
+
+        </li>
+
+
+        <!-- 專題文章 -->
+
+        <li>
+
+            <button
+                class="submenu-btn"
+                id="articleBtn">
+
+                <span>
+                    專題文章
+                </span>
+
+                <span class="arrow">
+                    ▼
+                </span>
+
+            </button>
+
+
+            <!-- 子選單 -->
+
+            <ul
+                class="submenu"
+                id="articleSubmenu">
+
+                <li>
+                    <a href="article1.html">
+                        漁業困境概括
+                    </a>
+                </li>
+
+                <li>
+                    <a href="article2.html">
+                        烏魚
+                    </a>
+                </li>
+
+                <li>
+                    <a href="article3.html">
+                        貝類
+                    </a>
+                </li>
+
+                <li>
+                    <a href="article4.html">
+                        白蝦
+                    </a>
+                </li>
+
+                <li>
+                    <a href="article5.html">
+                        香魚
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+
+
+        <!-- 紀實影片 -->
+
+        <li>
+
+            <a href="#紀實影片">
+
+                <span>
+                    紀實影片
+                </span>
+
+            </a>
+
+        </li>
+
+
+        <!-- 關於我們 -->
+
+        <li>
+
+            <a href="#關於我們">
+
+                <span>
+                    關於我們
+                </span>
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+
+
+<!-- ==================================================
+     JavaScript
+     ================================================== -->
+
+<script>
+
+
+    /* ==================================================
+       漢堡選單
+       ================================================== */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const closeBtn =
+        document.getElementById("closeBtn");
+
+    const sideMenu =
+        document.getElementById("sideMenu");
+
+    const overlay =
+        document.getElementById("overlay");
+
+    const articleBtn =
+        document.getElementById("articleBtn");
+
+    const articleSubmenu =
+        document.getElementById("articleSubmenu");
+
+
+    /* 開啟選單 */
+
+    menuBtn.addEventListener("click", function () {
+
+        sideMenu.classList.add("active");
+
+        overlay.classList.add("active");
+
+    });
+
+
+    /* 關閉選單 */
+
+    closeBtn.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+
+        overlay.classList.remove("active");
+
+    });
+
+
+    /* 點擊遮罩關閉 */
+
+    overlay.addEventListener("click", function () {
+
+        sideMenu.classList.remove("active");
+
+        overlay.classList.remove("active");
+
+    });
+
+
+    /* 展開／收起專題文章 */
+
+    articleBtn.addEventListener("click", function () {
+
+        articleSubmenu.classList.toggle("active");
+
+        articleBtn.classList.toggle("active");
+
+    });
+
+
+
+    /* ==================================================
+       紀實影片輪播
+       ================================================== */
+
+    const videoSlides =
+        document.querySelectorAll(".video-slide");
+
+    const videoDots =
+        document.querySelectorAll(".video-dot");
+
+    const videoPrev =
+        document.getElementById("videoPrev");
+
+    const videoNext =
+        document.getElementById("videoNext");
+
+
+    let currentVideo = 0;
+
+
+    /* 顯示指定影片 */
+
+    function showVideo(index) {
+
+        /* 超過最後一部 */
+
+        if (index >= videoSlides.length) {
+
+            currentVideo = 0;
+
+        }
+
+        /* 小於第一部 */
+
+        else if (index < 0) {
+
+            currentVideo =
+                videoSlides.length - 1;
+
+        }
+
+        else {
+
+            currentVideo = index;
+
+        }
+
+
+        /* 隱藏所有影片 */
+
+        videoSlides.forEach(function (slide) {
+
+            slide.classList.remove("active");
+
+        });
+
+
+        /* 移除所有圓點 active */
+
+        videoDots.forEach(function (dot) {
+
+            dot.classList.remove("active");
+
+        });
+
+
+        /* 顯示目前影片 */
+
+        videoSlides[currentVideo]
+            .classList.add("active");
+
+
+        /* 點亮目前圓點 */
+
+        videoDots[currentVideo]
+            .classList.add("active");
+
+    }
+
+
+    /* 上一部 */
+
+    videoPrev.addEventListener("click", function () {
+
+        showVideo(currentVideo - 1);
+
+    });
+
+
+    /* 下一部 */
+
+    videoNext.addEventListener("click", function () {
+
+        showVideo(currentVideo + 1);
+
+    });
+
+
+    /* 點擊圓點 */
+
+    videoDots.forEach(function (dot, index) {
+
+        dot.addEventListener("click", function () {
+
+            showVideo(index);
+
+        });
+
+    });
+
+
+
+    /* ==================================================
+       回到頂端
+       ================================================== */
+
+    const backToTop =
+        document.getElementById("backToTop");
+
+
+    /* 偵測頁面滾動 */
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 400) {
+
+            backToTop.classList.add("show");
+
+        } else {
+
+            backToTop.classList.remove("show");
+
+        }
+
+    });
+
+
+    /* 點擊回到頂端 */
+
+    backToTop.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>
